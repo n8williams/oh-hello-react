@@ -1,6 +1,24 @@
-# Getting Started with Create React App
+# README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+- Uses React.js with hooks
+- Uses eslint for linting and formatting
+
+## Commands
+- yarn start
+- yarn run eslint src/**/*.js
+- yarn run eslint src/**/*.js --fix
+
+## Setup Steps
+- yarn install
+- yarn upgrade
+- yarn audit
+- yarn add react-scripts@5.0.0
+- yarn audit
+- yarn add --dev eslint --save-dev
+- yarn create @eslint/config. This is confusing because it prompts `Would you like to install them now with npm?`. No I want to still using fucking yarn like in the command I just issued. So do this prior to the yarn create command. `yarn add --dev <plugins it listed>`
+then `yarn add --dev <plugins needed after the install>`
+- At this point the audit should show like 2 or very few low level issues
 
 ## Available Scripts
 
@@ -68,3 +86,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

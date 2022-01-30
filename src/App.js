@@ -1,35 +1,36 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import './App.css';
-import List from './List.js';
+import List from './List';
 
 // Note with switching between shorthand function defs () => thing; and
 // explicit form () => {return thing};, DO NOT FORGET the return.
 const mockHttpApiCall = () => {
   const books = [
-    {title: "Catch 22", author: "Joseph Heller"},
-    {title: "Cat's Cradle", author: "Kurt Vonnegut"},
-    {title: "The Idiot", author: "Fyodor Dostoevsky"}
+    { title: 'Catch 22', author: 'Joseph Heller' },
+    { title: 'Cat\'s Cradle', author: 'Kurt Vonnegut' },
+    { title: 'The Idiot', author: 'Fyodor Dostoevsky' },
   ];
   return new Promise((resolve) => {
-    setTimeout(() => resolve({data: {books: books}}), 2000);
+    setTimeout(() => resolve({ data: { books } }), 2000);
   });
-}
+};
 
-const App = () => {
+function App() {
   const [currentSearchState, searchUpdated] = React.useState('');
   const [books, booksStateUpdateHandler] = React.useState([]);
   React.useEffect(() => {
-    mockHttpApiCall().then(result => {
+    mockHttpApiCall().then((result) => {
       booksStateUpdateHandler(result.data.books);
     });
   });
 
   const sVal = currentSearchState.toLowerCase();
-  const filteredBooks = books.filter(b => b.title.toLowerCase().includes(sVal));
+  const filteredBooks = books.filter((b) => b.title.toLowerCase().includes(sVal));
 
-  const searchHandler = (event) => {    
+  const searchHandler = (event) => {
     searchUpdated(event.target.value);
-  }
+  };
 
   // Moved to List component's seatch stuff
   // const [searchTerm, setSearchTerm] = React.useState('')
@@ -42,8 +43,12 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <p>List Search Demo App</p>
-        <p>Searching for "{currentSearchState}"</p>
-        <List items = {filteredBooks} searchHandler = {searchHandler} search={currentSearchState} />
+        <p>
+          Searching for &quot;
+          {currentSearchState}
+          &quot;
+        </p>
+        <List items={filteredBooks} searchHandler={searchHandler} search={currentSearchState} />
       </header>
     </div>
   );
